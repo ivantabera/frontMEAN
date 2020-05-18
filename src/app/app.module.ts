@@ -5,14 +5,17 @@ import { NgModule } from '@angular/core';
 
 //Modulo de ruta
 import { AppRoutingModule } from './app-routing.module';
+
 //Componente principal
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { SlideshowComponent } from './slideshow/slideshow.component';
-import { GaleriaComponent } from './galeria/galeria.component';
-import { MouseparallaxefxComponent } from './mouseparallaxefx/mouseparallaxefx.component';
-import { ArticulosComponent } from './articulos/articulos.component';
-import { FormularioComponent } from './formulario/formulario.component';
+import { HeaderComponent } from './paginas/inicio/header/header.component';
+import { SlideshowComponent } from './paginas/inicio/slideshow/slideshow.component';
+import { GaleriaComponent } from './paginas/inicio/galeria/galeria.component';
+import { MouseparallaxefxComponent } from './paginas/inicio/mouseparallaxefx/mouseparallaxefx.component';
+import { ArticulosComponent } from './paginas/inicio/articulos/articulos.component';
+import { FormularioComponent } from './paginas/inicio/formulario/formulario.component';
+import { InicioComponent } from './paginas/inicio/inicio.component';
+import { ArticuloComponent } from './paginas/articulo/articulo.component';
 
 @NgModule({
   
@@ -24,7 +27,9 @@ import { FormularioComponent } from './formulario/formulario.component';
     GaleriaComponent,
     MouseparallaxefxComponent,
     ArticulosComponent,
-    FormularioComponent
+    FormularioComponent,
+    InicioComponent,
+    ArticuloComponent
   ],
 
   //importamos otros modulos cuyas clases exportadas sean necesarias para las plantillas de los componentes declarados en este modulo
