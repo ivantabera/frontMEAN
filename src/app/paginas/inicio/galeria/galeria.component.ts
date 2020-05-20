@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+//Importamos el servicio
+import { GaleriaService } from '../../../services/galeria.service';
+
 //Declarar variables para usar jQuery dentro de TS
 declare var jQuery:any;
 declare var $:any;
@@ -11,7 +14,15 @@ declare var $:any;
 })
 export class GaleriaComponent implements OnInit {
 
-  constructor() { }
+  constructor( private galeriaService : GaleriaService) {
+
+    /*=============================================
+    Recibiendo datos dinamicos
+    =============================================*/
+    this.galeriaService.getGaleria().subscribe( respuesta => {
+      console.log('respuesta:', respuesta)
+    })
+  }
 
   ngOnInit(): void {
 

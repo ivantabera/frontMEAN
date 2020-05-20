@@ -6,6 +6,9 @@ import { NgModule } from '@angular/core';
 //Modulo de ruta
 import { AppRoutingModule } from './app-routing.module';
 
+//Modulo para hacer peticiones http a las api con las que nos conectemos
+import { HttpClientModule } from '@angular/common/http';
+
 //Componente principal
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './paginas/inicio/header/header.component';
@@ -35,7 +38,8 @@ import { ArticuloComponent } from './paginas/articulo/articulo.component';
   //importamos otros modulos cuyas clases exportadas sean necesarias para las plantillas de los componentes declarados en este modulo
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
 
   //Recoleccion global de servicios, se vuelven accesibles en todas partes de la aplicacion. Esto lo habilitamos cuando invocamos servicios desde una base de datos

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+//importamos el servicio
+import { SlideshowService } from '../../../services/slideshow.service';
+
 //Declarar variables para usar jQuery dentro de TS
 declare var jQuery:any;
 declare var $:any;
@@ -11,7 +14,16 @@ declare var $:any;
 })
 export class SlideshowComponent implements OnInit {
 
-  constructor() { }
+  constructor( private slideShowService: SlideshowService ) {
+
+    /*=============================================
+    Recibiendo datos dinamicos
+    =============================================*/
+    this.slideShowService.getSlideShow().subscribe( respuesta => {
+      console.log('respuesta:', respuesta)
+
+    })
+  }
 
   ngOnInit(): void {
     

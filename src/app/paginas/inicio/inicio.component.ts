@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+//Declarar variables para usar jQuery dentro de TS
+declare var jQuery:any;
+declare var $:any;
+
 //clase que se importa para navegar entre paginas
 import { ActivatedRoute } from '@angular/router';
 
