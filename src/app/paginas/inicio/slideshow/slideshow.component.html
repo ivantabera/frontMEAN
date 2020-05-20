@@ -9,35 +9,19 @@
 			<div class="slide-inner">
 
 				<ul class="slide-area">
-					<li>
+					 
+					<!-- ngFor se utiliza para hacer bucles en la vista -->
+					<li *ngFor="let slide of slideJson; let ultimoIndice = last">
 						<div class="slide-text d-none d-lg-block">
-							<h3>Lorem ipsum.</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+							<h3>{{ slide.titulo }}</h3>
+							<p>{{ slide.descripcion }}</p>
 						</div>
-						<img src="assets/img/slide/slide01.jpg">
+						<img src="{{ slide.imagen }}">
+						{{ ultimoIndice ? callback() : '' }}
 					</li>
-					<li>
-						<div class="slide-text d-none d-lg-block">
-							<h3>Lorem ipsum.</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-						</div>
-						<img src="assets/img/slide/slide02.jpg">
-					</li>
-					<li>
-						<div class="slide-text d-none d-lg-block">
-							<h3>Lorem ipsum.</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-						</div>
-						<img src="assets/img/slide/slide03.jpg">
-					</li>
-					<li>
-						<div class="slide-text d-none d-lg-block">
-							<h3>Lorem ipsum.</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-						</div>
-						<img src="assets/img/slide/slide04.jpg">
-					</li>
+
 				</ul>
+				
 			</div>
 
 			<a class="prev" href="#">

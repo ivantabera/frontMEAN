@@ -10,13 +10,15 @@ import { ArticulosService } from '../../../services/articulos.service';
 })
 export class ArticulosComponent implements OnInit {
 
+  //Variables publicas o privadas
+  public articulosJson:any;
+
   constructor(private articulosService : ArticulosService) {
 
-    /*=============================================
-    Recibiendo datos dinamicos
-    =============================================*/
+    /*==========Recibiendo datos dinamicos============*/
     this.articulosService.getArticulos().subscribe( respuesta => {
-      console.log('respuesta:', respuesta)
+      //console.log('respuesta:', respuesta)
+      this.articulosJson = respuesta;
 
     });
 
