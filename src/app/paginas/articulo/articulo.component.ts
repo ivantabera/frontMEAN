@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 //Importamos el servicio que contiene la BD
 import { ArticulosService } from '../../services/articulos.service';
+import { UsuariosService } from '../../services/usuarios.service';
 
 //Clase que se necesita para trabajar con formularios
 import { NgForm } from '@angular/forms';
@@ -23,8 +24,13 @@ export class ArticuloComponent implements OnInit {
   public login:boolean = false;
   public usuario:string;
   public password:string;
+  public usuarioJson:any;
+  public renderUsuario:any;
+  public validarLogin:boolean = true;
 
-  constructor(activateRoute: ActivatedRoute, private articulosService : ArticulosService) {
+  constructor(activateRoute: ActivatedRoute, 
+              private articulosService : ArticulosService, 
+              private usuariosService : UsuariosService) {
     
     /*==========Recibiendo datos dinamicos============*/
     this.articulosService.getArticulos().subscribe( respuesta => {
@@ -46,8 +52,31 @@ export class ArticuloComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /* ===========formulario login=============== */
+
   onSubmit(f: NgForm){
-    console.log(this.usuario, this.password)
+
+    this.usuariosService.getUsuarios().subscribe(respuesta => {
+    
+      this.usuarioJson = respuesta;
+      
+      this.renderUsuario = this.usuarioJson.find(result => {
+
+        if(result.usuario == this.usuario && result.password == this.password){
+          return true
+        } else {
+          return false
+        }
+      
+      })
+
+      if(this.renderUsuario){
+        this.login = true;
+      } else {
+        this.validarLogin = false;
+      }
+
+    })
 
   }
 

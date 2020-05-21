@@ -41,9 +41,9 @@
             </div>
         </div>
         
-        <div class="alert alert-danger">Usuario y contraseña no validos</div>
+        <div *ngIf="!validarLogin" class="alert alert-danger">Usuario y contraseña no validos</div>
 
-        <button class="btn btn-lg btn-primary btn-block mt-3">Ingresar</button>
+        <button [disabled]="!f.valid" class="btn btn-lg btn-primary btn-block mt-3">Ingresar</button>
 
     </form>
 
