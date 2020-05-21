@@ -6,13 +6,39 @@
         <h3 class="mb-3 font-weight-normal">Login </h3>
 
         <div class="form-group">
-            <input type="text" name="usuarioLogin" [(ngModel)]="usuario" id="" class="form-control mt-3" placeholder="Usuario" required>
-            <div class="invalid-feedback">Este campo es obligatorio</div>
+            <input 
+                type="text" 
+                name="usuarioLogin" 
+                [(ngModel)]="usuario" 
+                id="" class="form-control mt-3" 
+                placeholder="Usuario" 
+                pattern="(?=.*[A-Za-z]).{4,12}"
+                #usuarioLogin="ngModel"
+                required>
+            <div *ngIf="!usuarioLogin.valid && usuarioLogin.touched" class="invalid-feedback">
+                Error en el campo de usuario
+            </div>
+            <div *ngIf="usuarioLogin.errors?.required && usuarioLogin.touched" class="invalid-feedback">
+                Este campo es obligatorio
+            </div>
         </div>
 
         <div class="form-group">
-            <input type="password" name="passwordLogin" [(ngModel)]="password" id="" class="form-control mt-3" placeholder="Contraseña" required>
-            <div class="invalid-feedback">Este campo es obligatorio</div>
+            <input 
+                type="password" 
+                name="passwordLogin" 
+                [(ngModel)]="password" 
+                id="" 
+                class="form-control mt-3" 
+                placeholder="Contraseña" 
+                #passwordLogin="ngModel"
+                required>
+            <div *ngIf="!passwordLogin.valid && passwordLogin.touched" class="invalid-feedback">
+                Error en el campo de usuario
+            </div>
+            <div *ngIf="passwordLogin.errors?.required && passwordLogin.touched" class="invalid-feedback">
+                Este campo es obligatorio
+            </div>
         </div>
         
         <div class="alert alert-danger">Usuario y contraseña no validos</div>
