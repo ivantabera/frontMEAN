@@ -18,8 +18,7 @@ export class ArticuloComponent implements OnInit {
   public renderArticulo:any;
   public contenidoArticulo:any;
 
-  constructor(activateRoute: ActivatedRoute, 
-              private articulosService : ArticulosService) {
+  constructor(activateRoute: ActivatedRoute, private articulosService : ArticulosService) {
     
     /*==========Recibiendo datos dinamicos============*/
     this.articulosService.getArticulos().subscribe( respuesta => {
