@@ -21,6 +21,8 @@ export class ArticuloComponent implements OnInit {
   public renderArticulo:any;
   public contenidoArticulo:any;
   public login:boolean = false;
+  public usuario:string;
+  public password:string;
 
   constructor(activateRoute: ActivatedRoute, private articulosService : ArticulosService) {
     
@@ -45,7 +47,7 @@ export class ArticuloComponent implements OnInit {
   }
 
   onSubmit(f: NgForm){
-    console.log('f:', f)
+    console.log(this.usuario, this.password)
 
   }
 
