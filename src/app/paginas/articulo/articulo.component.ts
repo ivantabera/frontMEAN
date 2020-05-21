@@ -28,7 +28,7 @@ export class ArticuloComponent implements OnInit {
       
       this.renderArticulo = this.articuloJson.find(result => {
 
-        return result.id == activateRoute.snapshot.params["id"]
+        return result.url == activateRoute.snapshot.params["id"]
       
       })
 
