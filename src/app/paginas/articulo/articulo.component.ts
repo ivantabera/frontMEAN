@@ -6,6 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 //Importamos el servicio que contiene la BD
 import { ArticulosService } from '../../services/articulos.service';
 
+//Clase que se necesita para trabajar con formularios
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-articulo',
   templateUrl: './articulo.component.html',
@@ -17,6 +20,7 @@ export class ArticuloComponent implements OnInit {
   public articuloJson:any;
   public renderArticulo:any;
   public contenidoArticulo:any;
+  public login:boolean = false;
 
   constructor(activateRoute: ActivatedRoute, private articulosService : ArticulosService) {
     
@@ -38,6 +42,11 @@ export class ArticuloComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(f: NgForm){
+    console.log('f:', f)
+
   }
 
 }

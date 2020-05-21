@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 //Modulo para hacer peticiones http a las api con las que nos conectemos
 import { HttpClientModule } from '@angular/common/http';
 
+//Modulo para trabajar con formularios
+import { FormsModule } from '@angular/forms';
+
 //Componente principal
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './paginas/inicio/header/header.component';
@@ -39,7 +42,8 @@ import { ArticuloComponent } from './paginas/articulo/articulo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
 
   //Recoleccion global de servicios, se vuelven accesibles en todas partes de la aplicacion. Esto lo habilitamos cuando invocamos servicios desde una base de datos

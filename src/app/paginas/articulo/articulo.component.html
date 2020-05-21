@@ -1,4 +1,30 @@
-<article>
+<!-- formulario de ingreso -->
+<div class="signin text-center" *ngIf="!login">
+
+    <form class="form-signin was-validated" (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
+        
+        <h3 class="mb-3 font-weight-normal">Login </h3>
+
+        <div class="form-group">
+            <input type="text" name="" id="" class="form-control mt-3" placeholder="Usuario" required>
+            <div class="invalid-feedback">Este campo es obligatorio</div>
+        </div>
+
+        <div class="form-group">
+            <input type="password" name="" id="" class="form-control mt-3" placeholder="Contraseña" required>
+            <div class="invalid-feedback">Este campo es obligatorio</div>
+        </div>
+        
+        <div class="alert alert-danger">Usuario y contraseña no validos</div>
+
+        <button class="btn btn-lg btn-primary btn-block mt-3">Ingresar</button>
+
+    </form>
+
+</div>
+
+<!-- lectura de articulo -->
+<article *ngIf="login">
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
