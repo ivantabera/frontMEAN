@@ -16,7 +16,7 @@
 							<h3>{{ slide.titulo }}</h3>
 							<p>{{ slide.descripcion }}</p>
 						</div>
-						<img src="{{ slide.imagen }}">
+						<img src="{{url}}/mostrar-img-slide/{{ slide.imagen }}">
 						{{ ultimoIndice ? callback() : '' }}
 					</li>
 

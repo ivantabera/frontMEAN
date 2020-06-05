@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 //Importamos el servicio
 import { GaleriaService } from '../../../services/galeria.service';
 
+//importamos la ruta global de config
+import { Ruta } from '../../../config';
+
 //Declarar variables para usar jQuery dentro de TS
 declare var jQuery:any;
 declare var $:any;
@@ -17,6 +20,7 @@ export class GaleriaComponent implements OnInit {
   //Variables publicas o privadas
   public galeriaJson:any;
   public renderGaleria:boolean = true;
+  public url = Ruta.url;
 
   constructor( private galeriaService : GaleriaService) {
 

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 //importamos el servicio
 import { SlideshowService } from '../../../services/slideshow.service';
 
+//importamos la ruta global de config
+import { Ruta } from '../../../config';
+
 //Declarar variables para usar jQuery dentro de TS
 declare var jQuery:any;
 declare var $:any;
@@ -17,6 +20,7 @@ export class SlideshowComponent implements OnInit {
   //Variables publicas o privadas
   public slideJson:any;
   public renderSlide:boolean = true;
+  public url = Ruta.url;
 
   constructor( private slideShowService: SlideshowService ) {
 

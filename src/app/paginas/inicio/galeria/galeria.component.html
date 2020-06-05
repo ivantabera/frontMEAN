@@ -10,8 +10,8 @@
 
 			<article class="white-panel" *ngFor="let galeria of galeriaJson; let ultimoIndice = last"> 
 
-				<a href="{{ galeria.foto }}" data-toggle="lightbox" data-gallery="example-gallery">
-					<img src="{{ galeria.foto }}">
+				<a href="{{url}}/mostrar-img-galeria/{{ galeria.foto }}" data-toggle="lightbox" data-gallery="example-gallery">
+					<img src="{{url}}/mostrar-img-galeria/{{ galeria.foto }}">
 				</a>
 
 				{{ ultimoIndice ? callback() : '' }}
