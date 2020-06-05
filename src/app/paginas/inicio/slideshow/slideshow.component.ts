@@ -23,7 +23,7 @@ export class SlideshowComponent implements OnInit {
     /*======Recibiendo datos dinamicos =====*/
     this.slideShowService.getSlideShow().subscribe( respuesta => {
       //console.log('respuesta:', respuesta)
-      this.slideJson = respuesta;
+      this.slideJson = respuesta["data"];
     })
   }
 

@@ -23,7 +23,7 @@ export class GaleriaComponent implements OnInit {
     /*====Recibiendo datos dinamicos========*/
     this.galeriaService.getGaleria().subscribe( respuesta => {
       //console.log('respuesta:', respuesta)
-      this.galeriaJson = respuesta;
+      this.galeriaJson = respuesta["data"];
     })
   }
 

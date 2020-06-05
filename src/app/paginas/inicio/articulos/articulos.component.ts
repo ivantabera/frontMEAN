@@ -17,8 +17,8 @@ export class ArticulosComponent implements OnInit {
 
     /*==========Recibiendo datos dinamicos============*/
     this.articulosService.getArticulos().subscribe( respuesta => {
-      //console.log('respuesta:', respuesta)
-      this.articulosJson = respuesta;
+      console.log('respuesta:', respuesta)
+      this.articulosJson = respuesta["data"];
 
     });
 
