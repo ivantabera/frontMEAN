@@ -7,6 +7,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ArticulosService } from '../../services/articulos.service';
 import { UsuariosService } from '../../services/usuarios.service';
 
+//importamos la ruta global de config
+import { Ruta } from '../../config';
+
 //Clase que se necesita para trabajar con formularios
 import { NgForm } from '@angular/forms';
 
@@ -27,6 +30,7 @@ export class ArticuloComponent implements OnInit {
   public usuarioJson:any;
   public renderUsuario:any;
   public validarLogin:boolean = true;
+  public url = Ruta.url;
 
   constructor(activateRoute: ActivatedRoute, 
               private articulosService : ArticulosService, 
@@ -37,7 +41,7 @@ export class ArticuloComponent implements OnInit {
 
       this.articuloJson = respuesta;
       
-      this.renderArticulo = this.articuloJson.find(result => {
+      this.renderArticulo = this.articuloJson['data'].find(result => {
 
         return result.url == activateRoute.snapshot.params["id"]
       
