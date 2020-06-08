@@ -59,7 +59,7 @@ export class ArticuloComponent implements OnInit {
   /* ===========formulario login=============== */
 
   onSubmit(f: NgForm){
-
+/* 
     this.usuariosService.getUsuarios().subscribe(respuesta => {
     
       this.usuarioJson = respuesta;
@@ -80,7 +80,7 @@ export class ArticuloComponent implements OnInit {
         this.validarLogin = false;
       }
 
-    })
+    }) */
 
   }
 

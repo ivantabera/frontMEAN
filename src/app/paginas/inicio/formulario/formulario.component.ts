@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UsuariosService } from '../../../services/usuarios.service';
 //Clase que se necesita para trabajar con formularios
 import { NgForm } from '@angular/forms';
 
@@ -15,8 +16,9 @@ declare var $:any;
 export class FormularioComponent implements OnInit {
 
   public listUsuario:any;
+  public usuarioCreado:any;
 
-  constructor() { 
+  constructor( private usuariosService: UsuariosService) { 
 
     this.listUsuario = {
       usuario:null,
@@ -64,7 +66,14 @@ export class FormularioComponent implements OnInit {
 
   /* Recibir del formulario login la funcion guardar usuario */
   guardarUsuario(f: NgForm){
-    console.log('this.listUsuario', this.listUsuario)
+    
+    this.usuariosService.guardarUsuario(this.listUsuario).subscribe( respuesta => {
+
+      this.usuarioCreado = respuesta;
+      console.log('this.usuarioCreado', this.usuarioCreado)
+
+    })
+
 
   }
 
