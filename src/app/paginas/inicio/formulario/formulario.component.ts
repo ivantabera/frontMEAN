@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+//Clase que se necesita para trabajar con formularios
+import { NgForm } from '@angular/forms';
+
 //Declarar variables para usar jQuery dentro de TS
 declare var jQuery:any;
 declare var $:any;
@@ -11,7 +14,17 @@ declare var $:any;
 })
 export class FormularioComponent implements OnInit {
 
-  constructor() { }
+  public listUsuario:any;
+
+  constructor() { 
+
+    this.listUsuario = {
+      usuario:null,
+      password:null,
+      email:null
+    }
+
+  }
 
   ngOnInit(): void {
 
@@ -46,6 +59,12 @@ export class FormularioComponent implements OnInit {
       checkboxClass: "icheckbox_flat-blue",
       radioClass: "iradio_flat-blue"
     })
+
+  }
+
+  /* Recibir del formulario login la funcion guardar usuario */
+  guardarUsuario(f: NgForm){
+    console.log('this.listUsuario', this.listUsuario)
 
   }
 
