@@ -18,6 +18,7 @@ export class FormularioComponent implements OnInit {
   public listUsuario:any;
   public usuarioCreado:any;
   public validCreateUsuario:boolean = true; 
+  public mensajeApi:string;
 
   constructor( private usuariosService: UsuariosService) { 
 
@@ -71,20 +72,18 @@ export class FormularioComponent implements OnInit {
     this.usuariosService.guardarUsuario(this.listUsuario).subscribe( respuesta => {
 
       this.usuarioCreado = respuesta;
-      console.log('this.usuarioCreado', this.usuarioCreado)
       
        if (this.usuarioCreado["status"] == 200) {
 
+        this.validCreateUsuario = true;
         $(".validCreateUsuario").removeClass("d-none");
         $(".validCreateUsuario").addClass("d-block");
         $(".validCreateUsuario").html(this.usuarioCreado["mensaje"]);
 
-      }
-      if (this.usuarioCreado["status"] == 400) {
+      } else {
 
-        $(".errorCreateUser").removeClass("d-none");
-        $(".errorCreateUser").addClass("d-block");
-        $(".errorCreateUser").html(this.usuarioCreado["mensaje"]);
+        this.validCreateUsuario = false;
+        this.mensajeApi = this.usuarioCreado["mensaje"];
 
       }
 

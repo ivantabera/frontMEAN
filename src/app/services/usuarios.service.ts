@@ -27,4 +27,12 @@ export class UsuariosService {
     return this.http.post(`${this.url}/crear-usuario`, listUsuario, {headers});
   }
 
+    /* Login angular y node  */
+    loginUsuario(listUsuario){
+
+      const headers = new HttpHeaders();
+  
+      return this.http.post(`${this.url}/login-usuario`, listUsuario, {headers});
+    }
+
 }

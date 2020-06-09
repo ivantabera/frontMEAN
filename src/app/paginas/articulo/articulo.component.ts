@@ -25,12 +25,12 @@ export class ArticuloComponent implements OnInit {
   public renderArticulo:any;
   public contenidoArticulo:any;
   public login:boolean = false;
-  public usuario:string;
-  public password:string;
   public usuarioJson:any;
   public renderUsuario:any;
   public validarLogin:boolean = true;
   public url = Ruta.url;
+  public listUsuario:any;
+  public mensajeLogin:string;
 
   constructor(activateRoute: ActivatedRoute, 
               private articulosService : ArticulosService, 
@@ -49,7 +49,13 @@ export class ArticuloComponent implements OnInit {
 
       this.contenidoArticulo = this.renderArticulo.contenido;
 
-    }); 
+    })
+
+    /* ====================Objeto lista usuario====================== */
+    this.listUsuario = {
+      usuario:null,
+      password:null
+    }
 
   }
 
@@ -59,28 +65,19 @@ export class ArticuloComponent implements OnInit {
   /* ===========formulario login=============== */
 
   onSubmit(f: NgForm){
-/* 
-    this.usuariosService.getUsuarios().subscribe(respuesta => {
+
+    this.usuariosService.loginUsuario(this.listUsuario).subscribe(respuesta => {
     
       this.usuarioJson = respuesta;
-      
-      this.renderUsuario = this.usuarioJson.find(result => {
 
-        if(result.usuario == this.usuario && result.password == this.password){
-          return true
-        } else {
-          return false
-        }
-      
-      })
-
-      if(this.renderUsuario){
+      if(this.usuarioJson["mensaje"] == "ok"){
         this.login = true;
       } else {
-        this.validarLogin = false;
+        this.mensajeLogin = this.usuarioJson["mensaje"];
+        this.validarLogin = false; 
       }
 
-    }) */
+    })
 
   }
 
