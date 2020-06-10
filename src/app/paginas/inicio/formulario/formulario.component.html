@@ -141,8 +141,8 @@
 					</label>
 				</div>
 
-				<div *ngIf="!validCreateUsuario" class="alert alert-danger">{{mensajeApi}}</div>
-				<div *ngIf="validCreateUsuario" class="alert alert-success d-none validCreateUsuario"></div>
+				<div *ngIf="errorCreateUsuario" class="alert alert-danger">{{mensajeApi}}</div>
+				<div *ngIf="validCreateUsuario" class="alert alert-success">{{mensajeApi}}</div>
 				<button type="submit" class="btn btn-primary btn-block">Enviar</button>
 
 			</form>
